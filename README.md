@@ -28,6 +28,14 @@ git clone https://github.com/danbim/single-page-react-app.git && \
  * [react-router-bootstrap](https://github.com/react-bootstrap/react-router-bootstrap)
  * [react-mixin](https://github.com/brigand/react-mixin)
 
+## even more resources
+
+ * [reflux](https://github.com/reflux/refluxjs#comparing-refluxjs-with-facebook-flux)
+ * [material-ui](http://material-ui.com/)
+ * [essential-react](https://github.com/pheuter/essential-react)
+ * [flux-mvc](https://github.com/facebook/flux/tree/master/examples/flux-todomvc)
+ * [fluxible](https://github.com/yahoo/fluxible)
+
 ## any license?
 ```
 -------------------------------------------------------------------------------
