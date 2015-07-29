@@ -13,6 +13,13 @@ git clone https://github.com/danbim/single-page-react-app.git && \
  node server.js
 ```
 
+## TODOs
+
+ * incremental builds
+ * auto-reload on server
+ * query-url component reload
+ * use flux?
+
 ## any license?
 ```
 -------------------------------------------------------------------------------
