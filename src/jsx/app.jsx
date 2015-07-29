@@ -63,10 +63,31 @@ class ScenarioListView extends React.Component {
         <ul>
         {this.state.scenarios.map((scenario) => {
             return (
-              <li><Link to="scenario" params={{uuid: scenario.uuid}}>{scenario.text}</Link></li>
+              <li><Link to="scenarioView" params={{uuid: scenario.uuid}}>{scenario.text}</Link></li>
             )
         })}
         </ul>
+      </div>
+    );
+  }
+}
+
+class ScenarioEditView extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      scenario: scenarios.get(this.props.params.uuid)
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Scenario Edit View {this.state.scenario.uuid}</h1>
+        <p><textarea>{this.state.scenario.text}</textarea></p>
+        <Link to="scenarioView" params={{uuid: this.state.scenario.uuid}}>Save</Link>
+        <Link to="scenarioList">Back</Link>
       </div>
     );
   }
@@ -77,26 +98,16 @@ class ScenarioView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      scenario: scenarios.get(this.props.params.uuid),
-      edit : props.query.edit
+      scenario: scenarios.get(this.props.params.uuid)
     };
   }
 
   render() {
-    var query = this.props.location;
-    if (this.state.edit) {
-      return (
-        <div>
-          <h1>Scenario Edit View {this.state.scenario.uuid}</h1>
-          <Link to="scenario" params={{uuid: this.state.scenario.uuid}}>Save</Link>
-          <Link to="scenarioList">Back</Link>
-        </div>
-      );
-    }
     return (
       <div>
         <h1>Scenario {this.state.scenario.uuid}</h1>
-        <Link to="scenario" params={{uuid: this.state.scenario.uuid}} query={{edit:true}}>Edit</Link>
+        <p>{this.state.scenario.text}</p>
+        <Link to="scenarioEdit" params={{uuid: this.state.scenario.uuid}}>Edit</Link>
         <Link to="scenarioList">Back</Link>
       </div>
     );
@@ -139,10 +150,11 @@ class LoginView extends React.Component {
 
 var routes = (
   <Route path="/" handler={HomeView}>
-    <Route name="login"        path="login"           handler={LoginView}        />
-    <Route name="register"     path="register"        handler={RegisterView}     />
-    <Route name="scenarioList" path="scenarios"       handler={ScenarioListView} />
-    <Route name="scenario"     path="scenarios/:uuid" handler={ScenarioView}     />
+    <Route name="login"        path="login"                handler={LoginView}        />
+    <Route name="register"     path="register"             handler={RegisterView}     />
+    <Route name="scenarioList" path="scenarios"            handler={ScenarioListView} />
+    <Route name="scenarioView" path="scenarios/:uuid"      handler={ScenarioView}     />
+    <Route name="scenarioEdit" path="scenarios/:uuid/edit" handler={ScenarioEditView} />
   </Route>
 );
 
@@ -150,5 +162,4 @@ $(function(){
   Router.run(routes, Router.HistoryLocation, function(Root) {
     React.render(<Root/>, document.body);
   });
-  window.onhashchange = () => console.log(window.location);
 });
