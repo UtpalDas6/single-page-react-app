@@ -6,10 +6,11 @@ application. I hope it will serve as a nice template...
 
 ## how to use it?
 ```
-https://github.com/danbim/single-page-react-app.git
-npm install
-grunt build
-node server.js
+git clone https://github.com/danbim/single-page-react-app.git && \
+ cd single-page-react-app && \
+ npm install && \
+ grunt build && \
+ node server.js
 ```
 
 ## any license?
