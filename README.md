@@ -1,8 +1,8 @@
 # single-page-react-app
 
 ## what's this?
-This are my first attempts using ES6 (via babel), react, react-router to build a single-page
-application. I hope it will serve as a nice template...
+This are my first attempts using ES6 (via babel), react, react-router, react-bootstrap and
+react-router-bootstrap to build a single-page application. I hope it will serve as a nice template...
 
 ## how to use it?
 ```
@@ -17,8 +17,16 @@ git clone https://github.com/danbim/single-page-react-app.git && \
 
  * incremental builds
  * auto-reload on server
- * query-url component reload
  * use flux?
+ * allow mixins with ES6 and react-mixin?
+
+## resources
+
+ * [react](http://facebook.github.io/react/)
+ * [react-router](http://rackt.github.io/react-router/)
+ * [react-bootstrap](http://react-bootstrap.github.io/)
+ * [react-router-bootstrap](https://github.com/react-bootstrap/react-router-bootstrap)
+ * [react-mixin](https://github.com/brigand/react-mixin)
 
 ## any license?
 ```

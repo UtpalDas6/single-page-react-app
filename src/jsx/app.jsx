@@ -6,6 +6,9 @@ var Router = require('react-router')
   , Route = Router.Route
   , Link = Router.Link;
 
+import { Nav, Navbar } from 'react-bootstrap';
+import { NavItemLink, ButtonLink, ListGroupItemLink } from 'react-router-bootstrap';
+
 class ScenarioStore {
 
   constructor(scenarios) {
@@ -38,9 +41,14 @@ class HomeView extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Home</h1>
-        <Link to="login">Login</Link> | <Link to="register">Register</Link> | <Link to="scenarioList">Scenarios</Link> 
+      <div className="container">
+        <Navbar brand={<Link to="home">Home</Link>}>
+          <Nav>
+            <NavItemLink to="login">Login</NavItemLink>
+            <NavItemLink to="register">Register</NavItemLink>
+            <NavItemLink to="scenarioList">Scenarios</NavItemLink>
+          </Nav>
+        </Navbar>
         <RouteHandler/>
       </div>
     );
@@ -149,7 +157,7 @@ class LoginView extends React.Component {
 }
 
 var routes = (
-  <Route path="/" handler={HomeView}>
+  <Route name="home" path="/" handler={HomeView}>
     <Route name="login"        path="login"                handler={LoginView}        />
     <Route name="register"     path="register"             handler={RegisterView}     />
     <Route name="scenarioList" path="scenarios"            handler={ScenarioListView} />
