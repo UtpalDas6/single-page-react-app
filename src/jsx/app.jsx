@@ -1,9 +1,15 @@
 import $ from 'jquery';
 import React from 'react';
 
-var Router = require('react-router')
-  , Route = Router.Route;
+import { Nav, Navbar } from 'react-bootstrap';
+import { NavItemLink, ButtonLink, ListGroupItemLink } from 'react-router-bootstrap';
 
+var Router = require('react-router')
+  , Route = Router.Route
+  , RouteHandler = Router.RouteHandler
+  , Link = Router.Link;
+
+import Scaffold from './Scaffold.jsx';
 import HomeView from './HomeView.jsx';
 import ScenarioListView from './ScenarioListView.jsx';
 import ScenarioEditView from './ScenarioEditView.jsx';
@@ -12,7 +18,8 @@ import RegisterView from './RegisterView.jsx';
 import LoginView from './LoginView.jsx';
 
 var routes = (
-  <Route name="home" path="/" handler={HomeView}>
+  <Route handler={Scaffold}>
+    <Route name="home"         path="/"                    handler={HomeView}         />
     <Route name="login"        path="login"                handler={LoginView}        />
     <Route name="register"     path="register"             handler={RegisterView}     />
     <Route name="scenarioList" path="scenarios"            handler={ScenarioListView} />
@@ -23,6 +30,6 @@ var routes = (
 
 $(function(){
   Router.run(routes, Router.HistoryLocation, function(Root) {
-    React.render(<Root/>, document.body);
+    React.render(<Root />, document.body);
   });
 });

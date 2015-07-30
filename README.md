@@ -15,7 +15,6 @@ git clone https://github.com/danbim/single-page-react-app.git && \
 
 ## TODOs
 
- * incremental builds
  * auto-reload on server
  * use flux?
  * allow mixins with ES6 and react-mixin?
