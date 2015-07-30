@@ -1,13 +1,8 @@
 import $ from 'jquery';
 import React from 'react';
 
-import { Nav, Navbar } from 'react-bootstrap';
-import { NavItemLink, ButtonLink, ListGroupItemLink } from 'react-router-bootstrap';
-
 var Router = require('react-router')
-  , Route = Router.Route
-  , RouteHandler = Router.RouteHandler
-  , Link = Router.Link;
+  , Route = Router.Route;
 
 import Scaffold from './Scaffold.jsx';
 import HomeView from './HomeView.jsx';
